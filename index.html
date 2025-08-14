@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Colorful Homepage</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;line-height:1.6;background:#f8fafc;color:#0f172a}
+    a{text-decoration:none}
+
+    /* Navbar */
+    .navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:linear-gradient(90deg,#ff6f61,#ffcc70);position:sticky;top:0;z-index:100}
+    .logo{font-weight:800;color:#fff;font-size:1.4rem}
+    .nav-links{display:flex;list-style:none;gap:1.25rem}
+    .nav-links a{color:#fff;font-weight:600;opacity:.95}
+    .nav-links a:hover{opacity:1;text-decoration:underline}
+
+    /* Sections */
+    section{opacity:0;transform:translateY(30px);transition:all .6s ease-out;}
+    section.show{opacity:1;transform:translateY(0);}
+
+    /* Hero */
+    .hero{display:grid;place-items:center;padding:6rem 1.5rem;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;text-align:center}
+    .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:.75rem;font-weight:900}
+    .hero p{max-width:700px;margin:0 auto 1.25rem;opacity:.95}
+    .btn{display:inline-block;padding:.9rem 1.4rem;border-radius:999px;background:#ffcc70;color:#222;font-weight:800}
+    .btn:hover{filter:brightness(.95)}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;padding:3rem 1.25rem;background:linear-gradient(90deg,#ffcc70,#ff6f61,#6a11cb)}
+    .card{background:rgba(255,255,255,.14);border-radius:18px;padding:1.5rem;color:#fff;backdrop-filter:blur(6px)}
+    .card h3{margin-bottom:.5rem}
+
+    /* About */
+    .about{padding:3rem 1.25rem;background:#f0f4f8;text-align:center}
+    .about h2{margin-bottom:1rem;font-size:2rem}
+    .about p{max-width:800px;margin:auto;color:#555}
+
+    /* Services */
+    .services{padding:3rem 1.25rem;background:linear-gradient(135deg,#00b09b,#96c93d);color:#fff;text-align:center}
+    .services h2{margin-bottom:1rem;font-size:2rem}
+    .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:2rem}
+    .service{background:rgba(255,255,255,.15);padding:1.5rem;border-radius:15px}
+
+    /* Testimonials */
+    .testimonials{padding:3rem 1.25rem;background:linear-gradient(135deg,#ff6f61,#ffcc70)}
+    .testimonials h2{text-align:center;margin-bottom:2rem;color:#fff}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .testimonial{background:rgba(255,255,255,.2);padding:1.5rem;border-radius:12px;color:#fff;font-style:italic}
+
+    /* Contact */
+    .contact{padding:3rem 1.25rem;background:#f0f4f8;text-align:center}
+    .contact h2{margin-bottom:1rem;font-size:2rem}
+    .contact form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:1rem}
+    .contact input,.contact textarea{padding:.8rem 1rem;border:1px solid #ccc;border-radius:8px;font-size:1rem}
+    .contact button{padding:.9rem 1.4rem;border:none;border-radius:999px;background:#2575fc;color:#fff;font-weight:800;cursor:pointer}
+    .contact button:hover{filter:brightness(.95)}
+
+    /* Footer */
+    footer{padding:1rem 1.25rem;text-align:center;background:#0b1220;color:#cbd5e1}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">MyBrand</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div>
+      <h1>Welcome to MyBrand</h1>
+      <p>We design colorful, professional websites that inspire and engage audiences worldwide.</p>
+      <a class="btn" href="#services">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <article class="card">
+      <h3>Creative Design</h3>
+      <p>Beautiful gradients, clean typography, and modern layouts.</p>
+    </article>
+    <article class="card">
+      <h3>Responsive Layout</h3>
+      <p>Perfectly adapts to mobile, tablet, and desktop screens.</p>
+    </article>
+    <article class="card">
+      <h3>Fast & Secure</h3>
+      <p>Optimized for performance and built with security in mind.</p>
+    </article>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>MyBrand is a creative web agency that specializes in crafting digital experiences with vibrant colors and professional designs. Our goal is to help your business stand out and connect with your audience through powerful visuals and intuitive interfaces.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service">Web Design</div>
+      <div class="service">UI/UX Optimization</div>
+      <div class="service">E-commerce Solutions</div>
+      <div class="service">Brand Strategy</div>
+      <div class="service">SEO & Marketing</div>
+      <div class="service">Website Maintenance</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">"MyBrand completely transformed our online presence. Our sales doubled!" – Sarah K.</div>
+      <div class="testimonial">"A professional team with great creative energy. Highly recommended!" – Raj P.</div>
+      <div class="testimonial">"They delivered on time and exceeded expectations with their designs." – Lisa M.</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required/>
+      <input type="email" placeholder="Your Email" required/>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="formMessage" style="margin-top:1rem;color:green;font-weight:bold;display:none;">✅ Message Sent Successfully!</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 MyBrand. All rights reserved.
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll animation
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < trigger){
+          sec.classList.add("show");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Form submission simulation
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("formMessage");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      msg.style.display = "block";
+      form.reset();
+      setTimeout(()=> msg.style.display = "none", 3000);
+    });
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Footer Page</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;line-height:1.6;background:#f8fafc;color:#fff}
+
+    /* Footer Container */
+    footer{
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-container{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-col h3{
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      border-bottom: 2px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      padding-bottom: .3rem;
+    }
+
+    .footer-col p{
+      color: #f1f5f9;
+      font-size: 0.95rem;
+    }
+
+    .footer-col ul{
+      list-style: none;
+    }
+
+    .footer-col ul li{
+      margin-bottom: .5rem;
+    }
+
+    .footer-col ul li a{
+      color: #f1f5f9;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-col ul li a:hover{
+      text-decoration: underline;
+    }
+
+    /* Bottom Bar */
+    .footer-bottom{
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+  <footer>
+    <div class="footer-container">
+      <!-- About -->
+      <div class="footer-col">
+        <h3>About MyBrand</h3>
+        <p>MyBrand creates colorful, professional, and modern web experiences. We help businesses shine online with innovative designs and smooth functionality.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: support@mybrand.com</p>
+        <p>Phone: +1 234 567 890</p>
+        <p>Address: 123 Creative Lane, Web City</p>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom">
+      © 2025 MyBrand. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
